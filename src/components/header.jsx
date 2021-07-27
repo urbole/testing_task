@@ -23,7 +23,7 @@ export const Header = () => {
         <span></span>
       </button>
       <div className="app-header__logo">
-      <img class="head__img" src={logoImg} alt="logo"/>
+      <img className="head__img" src={logoImg} alt="logo"/>
       </div>
       <nav className="app-header__nav">
         <ul className="app-header__nav-items">
@@ -34,7 +34,7 @@ export const Header = () => {
         </ul>
         <input className="app-header__search" type="search" />
         <button className="app-header__cart-btn-open" onClick={cartOpen}>
-          <img class="head__img" src={cartImg} alt="cart" />
+          <img className="head__img" src={cartImg} alt="cart" />
         </button>
       </nav>
     </header>
