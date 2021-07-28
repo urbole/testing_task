@@ -12,7 +12,7 @@
   &.app-header--cart-open {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   header {
@@ -40,11 +40,75 @@
   }
 
   &__items {
-    height: 400px;
-    background-color: #fff;
+    overflow: scroll;
+    overflow-x: hidden;
+    // overflow-y: none;
+  } 
+  &__item {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(32, 32, 32, 0.05);
+
+    & img {
+      width: 64px;
+      height: 64px;
+      margin-right: 1rem;
+      border-radius: 160px;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 20px;
+      text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.33);
+
+      & h2 {
+        margin-bottom: .65rem;
+      }
+    }
+
+    &-purchase {
+      color: #CC0000;
+      margin-bottom: .65rem;
+    }
+
+    &-btn-group {
+      display: flex;
+
+      & button {
+        width: 32px;
+        height: 32px;
+        background: #FFFFFF;
+        border: 1px solid #D8D8D8;
+        box-shadow: inset 0px -2px 2px rgba(0, 0, 0, 0.13);
+        border-radius: 4px 0px 0px 4px;
+
+        &:last-of-type {
+          border-radius: 0px 4px 4px 0px;
+        }
+
+      }
+
+      & div {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        width: 61px;
+        height: 32px;
+        background: #FFFFFF;
+        border: 1px solid #D8D8D8;
+        box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.13);
+      }
+    }
   }
 
   footer {
+    margin-top: auto;
     height: 115px;
     padding: 19px 18px 15px 18px;
     background-color: #F4F4F4;
@@ -104,3 +168,23 @@
     height: 100vh;
   }
 }
+
+
+// &__items {
+//   height: 400px;
+//   background-color: #fff;
+//   overflow: scroll;
+
+//   &__item {
+//   }
+
+
+// &__info {
+
+//   & .product__title {
+//     font-weight: bold;
+//     font-size: 13px;
+//     line-height: 20px;
+//     text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.33);
+//   }
+// }

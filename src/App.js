@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import { Cart } from './components/cart';
-import { Header } from './components/header';
+import Cart from './components/cart';
+import Header from './components/header';
 import ProductCard from './components/productCard';
 import productImgItem from './assets/img/01.jpg';
-import productPrevImg1Item from './assets/img/01_prev.jpg';
-import productPrevImg2Item from './assets/img/02_prev.jpg';
-import productPrevImg3Item from './assets/img/03_prev.jpg';
+import productPrevImg1 from './assets/img/01_prev.jpg';
+import productPrevImg2 from './assets/img/02_prev.jpg';
+import productPrevImg3 from './assets/img/03_prev.jpg';
 import './App.scss';
 import './css/cart.scss';
 import './css/header.scss';
 
-const productData = {
+const startProductData = {
   idItem: '01',
   img: productImgItem,
   prev: [
-    productPrevImg1Item,
-    productPrevImg2Item,
-    productPrevImg3Item,
+    productPrevImg1,
+    productPrevImg2,
+    productPrevImg3,
   ],
   title: 'Handmade Stainless Steel Kings Chain Viking Geri And Freki Mjolnir Necklace',
   length: '60 CM (24 INCHES)',
@@ -28,18 +28,26 @@ const productData = {
 class App extends Component {
 
   state = {
-    data: productData
+    startData: startProductData,
+    dataForCartFromProductCard: [],
   }
+
+  dataFormProductCard = data => {
+    this.setState({ dataForCartFromProductCard: this.state.dataForCartFromProductCard.concat(data) })
+    // console.log(data)
+    // console.log(this.state.dataForCartFromProductCard)
+  }
+
 
   render() {
     return (
       <div>
-        <Cart />
+        <Cart sendInfoAboutCartItems={this.state.dataForCartFromProductCard} />
         <div className="app__wrapper">
           <div className='main__wrapper'>
-            <Header />
+            <Header sendInfoAboutCartItems={this.state.dataForCartFromProductCard}  />
             <div className='product__wrapper'>
-              <ProductCard productInfo={this.state.data} />
+              <ProductCard sendProductInfo={this.state.startData} dataFormProductCard={this.dataFormProductCard} />
             </div>
           </div>
         </div>

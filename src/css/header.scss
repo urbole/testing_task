@@ -98,7 +98,8 @@
     background-color: transparent;
     cursor: pointer;
 
-    &::before {
+    & span {
+      display: none;
       position: absolute;
       content: '8';
       top: 0;
@@ -108,11 +109,13 @@
       border-radius: 50%;
       width: 1rem;
       height: 1rem;
-      display: flex;
       justify-content: center;
       align-items: center;
       line-height: 1;
     }
+  }
+  & .not-empty{
+    display: flex;
   }
 }
 
