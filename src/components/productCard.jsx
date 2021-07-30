@@ -10,18 +10,12 @@ class ProductCard extends Component {
     title: this.props.sendProductInfo.title,
     length: this.props.sendProductInfo.length,
     price: this.props.sendProductInfo.price,
+    discountPrice:this.props.sendProductInfo.discountPrice
   }
 
-  downCount = e => {
-    this.state.count === 0 ?
-      document.getElementById('down-count').setAttribute('disabled', 'disabled')
-      : this.setState({ count: this.state.count - 1 })
-  }
+  downCount = e => this.state.count > 0 ? this.setState({ count: this.state.count - 1 }) : '';
+  upCount = e => this.setState({ count: this.state.count + 1 });
 
-  upCount = e => {
-    document.getElementById('down-count').removeAttribute('disabled', 'disabled')
-    this.setState({ count: this.state.count + 1 });
-  }
 
   addProduct = () => {
     const data = {
@@ -31,6 +25,7 @@ class ProductCard extends Component {
       title: this.state.title,
       length: this.state.length,
       price: this.state.price,
+      discountPrice: this.state.discountPrice
     };
 
     if (this.state.count > 0) {
@@ -67,7 +62,7 @@ class ProductCard extends Component {
             <select name="" id="">
               <option>{this.props.sendProductInfo.length}</option>
             </select>
-            <span className="product__price">{this.props.sendProductInfo.price}</span>
+            <span className="product__price">{this.props.sendProductInfo.discountPrice}</span>
           </div>
           <div className="product__buttons">
             <div className="product__btn-group">

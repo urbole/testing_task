@@ -74,6 +74,10 @@
     &-purchase {
       color: #CC0000;
       margin-bottom: .65rem;
+      & span:last-child {
+        color: #B4B4B4;
+        margin-left: .5rem;
+      }
     }
 
     &-btn-group {

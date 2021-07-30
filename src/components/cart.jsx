@@ -26,21 +26,25 @@ class Cart extends Component {
     // console.log(this.props.sendInfoAboutCartItems[0].count);
   };
 
+  total = () => {
+    let amountItems = [];
+
+    this.props.sendInfoAboutCartItems.map((item, i) => {
+      amountItems.push(item.count)
+      console.log('🚀 ~ Cart ~ amountItems', amountItems);
+    }).reduce((accum, item) => accum + item)
+  }
+
+
   render() {
-    
-    let testCount = 0;
+
     return (
       <article className="cart">
         <header>
-          {/* <span>Cart ({this.props.sendInfoAboutCartItems.length} items)</span> */}
-          <span>Cart ({
-            // this.state.count
-            this.props.sendInfoAboutCartItems.map((item) =>{
-              testCount = testCount + item.count;
-              // this.setState({count:  testCount})
-              // return testCount
-            })
-          } items)</span>
+          <span onClick={this.total}>
+            Cart ({this.total} items)
+          </span>
+
           <button className="cart__btn-close" onClick={this.hideCart}>X</button>
         </header>
         <div className="cart__items">
