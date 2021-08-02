@@ -10,7 +10,7 @@ class ProductCard extends Component {
     title: this.props.sendProductInfo.title,
     length: this.props.sendProductInfo.length,
     price: this.props.sendProductInfo.price,
-    discountPrice:this.props.sendProductInfo.discountPrice
+    discountPrice: this.props.sendProductInfo.discountPrice
   }
 
   downCount = e => this.state.count > 0 ? this.setState({ count: this.state.count - 1 }) : '';
