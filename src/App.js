@@ -1,13 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Cart from './components/cart';
+import Header from './components/header';
+import ProductCard from './components/productCard';
+import { startProductData } from './products';
+import './App.scss';
+import './css/cart.scss';
+import './css/header.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <div>Test</div>
-      <div>Test2</div>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    startData: startProductData,
+    dataForCartFromProductCard: [],
+  }
+
+  dataFormProductCard = data => {
+    this.setState({ dataForCartFromProductCard: this.state.dataForCartFromProductCard.concat(data) })
+  }
+
+
+  render() {
+
+    const listItems = this.state.startData.map((item, i) =>
+      <ProductCard sendProductInfo={item} key={i} dataFormProductCard={this.dataFormProductCard} />
+    )
+
+    return (
+      <div>
+        <Cart sendInfoAboutCartItems={this.state.dataForCartFromProductCard} />
+        <div className="app__wrapper">
+          <div className='main__wrapper'>
+            <Header sendInfoAboutCartItems={this.state.dataForCartFromProductCard} />
+            <div className='product__wrapper'>
+              {
+                listItems
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
