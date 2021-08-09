@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../css/cart.scss';
 import CartItem from './cartItem';
+
 class Cart extends Component {
 
   state = {
@@ -41,7 +42,7 @@ class Cart extends Component {
     return (
       <article className="cart">
         <header>
-          <span onClick={this.total}>
+          <span>
             Cart ({this.total} items)
           </span>
 

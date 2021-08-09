@@ -16,6 +16,7 @@ class CartItem extends Component {
   }
 
   render() {
+
     return (
       <div className="cart__item">
         <img src={this.props.item.img} alt="product" />

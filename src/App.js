@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cart from './components/cart';
+import Cart from './components/Cart';
 import Header from './components/header';
 import ProductCard from './components/productCard';
 import { startProductData } from './products';
@@ -21,9 +21,9 @@ class App extends Component {
 
   render() {
 
-    const listItems = this.state.startData.map((item, i) =>
-      <ProductCard sendProductInfo={item} key={i} dataFormProductCard={this.dataFormProductCard} />
-    )
+    // const listItems = this.state.startData.map((item, i) =>
+    //   <ProductCard sendProductInfo={item} key={i} dataFormProductCard={this.dataFormProductCard} />
+    // )
 
     return (
       <div>
@@ -33,7 +33,11 @@ class App extends Component {
             <Header sendInfoAboutCartItems={this.state.dataForCartFromProductCard} />
             <div className='product__wrapper'>
               {
-                listItems
+                // listItems
+                this.state.startData.map((item, i) =>
+      <ProductCard sendProductInfo={item} key={i} dataFormProductCard={this.dataFormProductCard} />
+    )
+
               }
             </div>
           </div>
